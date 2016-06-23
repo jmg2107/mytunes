@@ -24,6 +24,7 @@ var SongQueue = Songs.extend({
     });
 
     var dequeueSong = this.on('dequeue', function() {
+      console.log('dequeue');
       this.pop();
     })
   }

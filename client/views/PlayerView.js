@@ -12,11 +12,17 @@ var PlayerView = Backbone.View.extend({
   },
 
   initialize: function() {
-
+    this.$el.on('ended', function() {
+      console.log('triggered ended in Player');
+      this.model.ended();
+    }.bind(this));
+    // this.listenTo(this.$el, 'ended', function() {
+    //   console.log('triggered ended in Player');
+    //   this.render();
+    // }.bind(this));
   },
 
   setSong: function(song){
-    console.log('setSong running');
     this.model = song;
     this.render();
   },
