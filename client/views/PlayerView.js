@@ -18,6 +18,9 @@ var PlayerView = Backbone.View.extend({
       this.model.set('playCount', this.model.get('playCount') + 1);
       console.log(this.model.get('playCount'));
     }.bind(this));
+
+    this.render();
+
     // this.listenTo(this.$el, 'ended', function() {
     //   console.log('triggered ended in Player');
     //   this.render();

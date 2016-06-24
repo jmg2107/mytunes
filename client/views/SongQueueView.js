@@ -5,12 +5,16 @@ var SongQueueView = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, 'add', function() {
+      console.log(JSON.stringify(this.collection));
+      window.localStorage.setItem('songQueue', JSON.stringify(this.collection));
       this.render();
     });
     this.listenTo(this.collection, 'dequeue', function() {
+      window.localStorage.setItem('songQueue', JSON.stringify(this.collection));
       this.render();
     });
     this.listenTo(this.collection, 'ended', function() {
+      window.localStorage.setItem('songQueue', JSON.stringify(this.collection));
       this.render();
     });
     this.render();
